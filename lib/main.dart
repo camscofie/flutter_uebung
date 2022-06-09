@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'components/todo.dart';
 
 void main() => runApp(const MyApp());
 
@@ -30,34 +31,16 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text('Todos List'),
       ),
-      body: ListView(
-        padding: const EdgeInsets.all(8),
-        children: const <Widget>[Todo('thing A'), Todo('Thing B')],
-      ),
+      body: const Text('nothing yet'),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => {setState(() => {})},
+        onPressed: () => {
+          showModalBottomSheet(
+              context: context,
+              builder: (BuildContext context) {
+                return const Text('just something');
+              })
+        },
       ),
-    );
-  }
-}
-
-class Todo extends StatefulWidget {
-  final String todoName;
-
-  const Todo(this.todoName);
-
-  @override
-  State<Todo> createState() => _TodoState();
-}
-
-class _TodoState extends State<Todo> {
-  bool _isSelected = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return CheckboxListTile(
-      title: Todo.todoname,
-      value: _isSelected,
     );
   }
 }
