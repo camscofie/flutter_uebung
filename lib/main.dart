@@ -36,8 +36,13 @@ class _HomeScreenState extends State<HomeScreen> {
         onPressed: () => {
           showModalBottomSheet(
               context: context,
-              builder: (BuildContext context) {
-                return const Text('just something');
+              builder: (context) {
+                return Container(
+                  child:
+                      const Text('here come some text inside of the container'),
+                  color: Colors.blue,
+                  padding: EdgeInsets.all(16.0),
+                );
               })
         },
       ),
