@@ -1,51 +1,59 @@
 import 'package:flutter/material.dart';
 import 'components/todo.dart';
+import 'components/add_button.dart';
+import 'components/todo_textfield.dart';
 
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  static const String _title = 'Todo List';
-
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: _title,
-      home: HomeScreen(),
+    return MaterialApp(
+      title: 'something',
+      home: Task1(),
     );
   }
 }
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class Task1 extends StatefulWidget {
+  const Task1({Key? key}) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<Task1> createState() => _Task1State();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _Task1State extends State<Task1> {
+  List<Todo> todos = [];
+
+  void _addToDo(Todo newTodo) {
+    setState(() {
+      todos.insert(0, newTodo);
+    });
+  }
+
+  void _showTextField(BuildContext context) {
+    showModalBottomSheet(
+        context: context,
+        builder: (context) {
+          return ToDoTextField(onFinish: _addToDo);
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Todos List'),
-      ),
-      body: const Text('nothing yet'),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => {
-          showModalBottomSheet(
-              context: context,
-              builder: (context) {
-                return Container(
-                  child:
-                      const Text('here come some text inside of the container'),
-                  color: Colors.blue,
-                  padding: EdgeInsets.all(16.0),
-                );
-              })
-        },
-      ),
-    );
+        body: ListView.builder(
+          itemBuilder: (context, index) {
+            return Text(todos[0].todoName);
+          },
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.add),
+          onPressed: () {
+            _showTextField(context);
+          },
+        ));
   }
 }

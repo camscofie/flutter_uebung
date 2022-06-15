@@ -1,0 +1,10 @@
+C:/Users/YangeZheng(staff)/Projects/flutter_uebung/build/windows/CMakeFiles/INSTALL.dir
+C:/Users/YangeZheng(staff)/Projects/flutter_uebung/build/windows/CMakeFiles/ALL_BUILD.dir
+C:/Users/YangeZheng(staff)/Projects/flutter_uebung/build/windows/CMakeFiles/ZERO_CHECK.dir
+C:/Users/YangeZheng(staff)/Projects/flutter_uebung/build/windows/flutter/CMakeFiles/flutter_wrapper_plugin.dir
+C:/Users/YangeZheng(staff)/Projects/flutter_uebung/build/windows/flutter/CMakeFiles/flutter_wrapper_app.dir
+C:/Users/YangeZheng(staff)/Projects/flutter_uebung/build/windows/flutter/CMakeFiles/flutter_assemble.dir
+C:/Users/YangeZheng(staff)/Projects/flutter_uebung/build/windows/flutter/CMakeFiles/INSTALL.dir
+C:/Users/YangeZheng(staff)/Projects/flutter_uebung/build/windows/runner/CMakeFiles/flutter_uebung.dir
+C:/Users/YangeZheng(staff)/Projects/flutter_uebung/build/windows/runner/CMakeFiles/INSTALL.dir
+C:/Users/YangeZheng(staff)/Projects/flutter_uebung/build/windows/runner/CMakeFiles/ALL_BUILD.dir
