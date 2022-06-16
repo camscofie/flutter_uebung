@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_uebung/components/TodoListTile.dart';
 import 'components/todo.dart';
 import 'components/add_button.dart';
 import 'components/todo_textfield.dart';
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'something',
       home: Task1(),
     );
@@ -33,6 +34,15 @@ class _Task1State extends State<Task1> {
     });
   }
 
+  void _onCheck(bool newValue, int id) {
+    int index = todos.indexWhere((todo) => todo.id == id);
+    if (index != -1) {
+      setState(() {
+        todos[index].isDone = !todos[index].isDone;
+      });
+    }
+  }
+
   void _showTextField(BuildContext context) {
     showModalBottomSheet(
         context: context,
@@ -44,16 +54,20 @@ class _Task1State extends State<Task1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: ListView.builder(
-          itemBuilder: (context, index) {
-            return Text(todos[0].todoName);
-          },
-        ),
-        floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.add),
-          onPressed: () {
-            _showTextField(context);
-          },
-        ));
+      body: ListView.builder(
+        itemCount: todos.length,
+        itemBuilder: (context, index) {
+          return ToDoListTile(todo: todos[index], onCheck: _onCheck);
+        },
+      ),
+      // floatingActionButton: FloatingActionButton(
+      //   child: const Icon(Icons.add),
+      //   onPressed: () {
+      //     _showTextField(context);
+      //   },)
+      floatingActionButton: AddButton(
+        onPress: _showTextField,
+      ),
+    );
   }
 }

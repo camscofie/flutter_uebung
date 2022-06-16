@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import './todo.dart';
-import 'add_button.dart';
+import './add_button.dart';
 
 class ToDoTextField extends StatefulWidget {
   const ToDoTextField({Key? key, required this.onFinish}) : super(key: key);
@@ -14,7 +14,12 @@ class _ToDoTextFieldState extends State<ToDoTextField> {
   String text = "";
 
   void _onFinishHandler(String text, BuildContext context) {
-    Todo newTodo = Todo(text);
+    DateTime now = DateTime.now();
+    Todo newTodo = Todo(
+      todoName: text,
+      id: now.millisecondsSinceEpoch,
+      isDone: false,
+    );
     widget.onFinish(newTodo);
     Navigator.of(context).pop();
   }
