@@ -12,8 +12,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: 'something',
-      home: Task1(),
+      title: 'ToDoList APP',
+      home: DefaultTabController(
+        length: 1,
+        child: Scaffold(
+          appBar: AppBar(),
+          body: TabBarView(children: [
+            Task1(),
+            Task1(),
+          ]),
+        ),
+      ),
     );
   }
 }
